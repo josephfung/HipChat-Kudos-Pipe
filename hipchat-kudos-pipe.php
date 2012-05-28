@@ -31,13 +31,13 @@ require('./TribeHR-PHP-Client/TribeHR.php');
 // Let's only process the payload if we're going to actually be getting
 // a Kudo. Note - this logic can be easily extende to create a script that
 // can handle multiple different WebHook types.
-if (isset($_GET['object_id']) && isset($_GET['object']))
+if (isset($_REQUEST['object_id']) && isset($_REQUEST['object']))
 {
 	// Create my connection to tribehr and fetch the kudos that are specified
 	// by the webhood data.
 	$TribeHRConnection = new TribeHRConnector(SUBDOMAIN, USER, KEY);
 	$TribeHRConnection->setProtocol(PROTOCOL);
-	$id = intval($_GET['object_id']);
+	$id = intval($_REQUEST['object_id']);
 	try {
 		$tc = $TribeHRConnection->sendRequest('/kudos/'.$id.'.xml', 'GET');
 	}
