@@ -1,0 +1,19 @@
+A helper script to pipe Kudos from your TribeHR account into a HipChat room
+
+This script listens for a WebHook event, then connects to the site via the REST API to get
+the details of the Kudos. It then prepares a POST submission, which is sent to the HipChat
+API as a new message.
+
+More on TribeHR WebHooks: http://developers.tribehr.com/api/webhook-event-notification/
+More on the TribeHR REST API: http://developers.tribehr.com/api/api-introduction/
+More on the HipChat Message API: https://www.hipchat.com/docs/api/method/rooms/message
+
+To use this script, here are the high level steps:
+
+  1. Create a new API key for your HipChat account
+  2. Get your TribeHR API Key
+  3. Configure and upload this script to a web host (along with the TribeHR PHP API Wrapper)
+  4. Add a WebHook for Note.add pointing to this script
+  5. Sit Back and Enjoy
+
+TribeHR PHP API Wrapper: https://github.com/TribeHR/TribeHR-PHP-Client
