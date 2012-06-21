@@ -14,8 +14,8 @@
  */
 
 // Set your TribeHR credentials
-define('SUBDOMAIN', '########');								// Your TribeHR Sub Domain
-define('USER', '#####');										// The username of an Administrator
+define('SUBDOMAIN', '#####');								// Your TribeHR Sub Domain
+define('USER', '####');										// The username of an Administrator
 define('KEY', '######################################');		// The API KEY of the administrator above
 define('PROTOCOL', 'https');									// Use HTTPS for live testing
 
@@ -48,7 +48,7 @@ if (isset($_REQUEST['object_id']) && isset($_REQUEST['object']))
 	// Now that we have the information in $tc, convert the data to an array
 	// and check to see if this is actually a kudos instance, othewise stop
 	$xml = simplexml_load_string($tc->response);
-	if($xml->note['is_kudo'])
+	if(isset($xml->note['is_kudo']) && $xml->note['is_kudo'] == '1') // ensure it exists AND is "1"
 	{
 		// We'll be using this URL repeatedy, so create a variable
 		$tribehr_url = 'https://'.SUBDOMAIN.'.mytribehr.com';
